@@ -1,24 +1,48 @@
 const input = document.getElementById("input");
 const reset = document.getElementById("reset");
-const API_cards = "https://pokeapi.co/api/v2/pokemon/"
-async function searching(inputs){
-        try{
-            const response = await fetch(`https://pokeapi.co/api/v2/type/${inputs}`);
-            if(response.ok)
-                {
-                    const data = await response.json();
-                    console.log(data);
-                }
-                else{
-                    alert("No Data Fetch");
-                }
+const cardContainer = document.getElementById("card");
 
-        }
-        catch(e){
-            console.log("error" ,e);
-        }
+const createNewCard = (pokemon) => {
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+        <div class="front-card">
+            <div class="slNo">#<span class="slNo">${pokemon.id}</span></div>
+            <img class="img" src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
+            <h3 class="name">${pokemon.name}</h3>
+            <h6 class="type">${pokemon.types.map(typeInfo => typeInfo.type.name).join(', ')}</h6>
+        </div>
+        <div class="back-card">
+            <img src="" alt="" />
+            <h3 class="name">Dragon</h3>
+            <p class="utilities">Utilities:</p>
+        </div>
+    `;
+    return card;
 }
-input.addEventListener("change" , ()=>{
-        searching(input.value);
-   
-})
+
+const searching = async (input) => {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
+        if (response.ok) {
+            const data = await response.json();
+            return data;
+        } else {
+            console.log("Error occurred");
+        }
+    } catch (e) {
+        console.log("Error Occurred", e);
+    }
+}
+
+const fetchData = async () => {  
+    for (let i = 1; i <= 151; i++) {
+        const data = await searching(i);
+        if (data) {
+            const card = createNewCard(data);
+            cardContainer.appendChild(card);
+        }
+    }
+}
+
+fetchData();

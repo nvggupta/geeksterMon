@@ -83,6 +83,7 @@ input{
 }
 h3 , h6 , .utilities{
     text-align: center;
+    font-size: medium;
 }
 .slNo{
     width: 100%;
@@ -91,4 +92,9 @@ h3 , h6 , .utilities{
     border: 1px solid brown;
     text-align: center;
     background: #fff;
+}
+#img{
+    height: 100px;
+    width: 100px;
+    margin-left: 20%;
 }
