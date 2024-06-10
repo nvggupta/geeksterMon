@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>GeeksterMon</h1>
+      <div class="container">
+        <select name="" id="select">
+          <option value="Types" id="types">Types</option>
+          <option value="Grass" id="option-1">Grass</option>
+          <option value="Fire" id="option-2">Fire</option>
+          <option value="Water" id="option-3">Water</option>
+          <option value="Bug" id="option-4">Bug</option>
+          <option value="Normal" id="option-5">Normal</option>
+          <option value="Poison" id="option-6">Poison</option>
+          <option value="Electric" id="option-7">Electric</option>
+          <option value="Ground" id="option-8">Ground</option>
+          <option value="Fairy" id="option-9">Fairy</option>
+          <option value="Fighting" id="option-10">Fighting</option>
+          <option value="psychic" id="option-12">psychic</option>
+          <option value="Rock" id="option-13">Rock</option>
+          <option value="Ghost" id="option-14">Ghost</option>
+          <option value="Ice" id="option-15">Ice</option>
+          <option value="Dragon" id="option-16">Dragon</option>
+        </select>
+        <button id="filter" class="filter">Filter By Type</button>
+        <button class="reset" id="reset">Reset</button><br />
+        <input type="text" id="input" placeholder="Enter Pokemon Name" />
+      </div>
+      <div class="card-section">
+        <div class="card">
+            <div class="front-card">
+                <div class="slNo">#<span id="slNo">1</span></div>
+                <img id="img" src="" alt="">
+                <h3 id="name">Dragon</h3>
+                <h6 id="value">Value</h6>
+            </div>
+            <div class="back-card">
+                <img src="" alt="">
+                <h3 id="name">Dragon</h3>
+                <p class="utilities">Uitilities:</p>
+            </div>
+      </div>
+     
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
