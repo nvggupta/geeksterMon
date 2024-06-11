@@ -36,7 +36,7 @@ const searching = async (input) => {
 }
 
 const fetchData = async () => {  
-    for (let i = 1; i <= 151; i++) {
+    for (let i = 1; i <= 51; i++) {
         const data = await searching(i);
         if (data) {
             const card = createNewCard(data);
@@ -46,3 +46,20 @@ const fetchData = async () => {
 }
 
 fetchData();
+const searchCard = (inputValue) => {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+        const name = card.querySelector(".name").textContent.toLowerCase();
+        console.log(name);
+        if (name.includes(inputValue.toLowerCase())) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+input.addEventListener("input",()=>{
+   searchCard(input.value);
+   
+})

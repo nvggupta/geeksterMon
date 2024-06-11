@@ -50,6 +50,7 @@ input{
     transform-style: preserve-3d;
     transition: transform 0.5s;
     border: none;
+    display: block;
 }
 .card:hover .front-card {
     transform: rotateY(180deg);
