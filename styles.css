@@ -45,7 +45,7 @@ input{
     position: relative;
     height: 300px;
     width: 180px;
-    border: 1px solid green;
+    border: 1px solid r;
     border-radius: 15px;
     transform-style: preserve-3d;
     transition: transform 0.5s;
@@ -90,7 +90,7 @@ h3 , h6 , .utilities{
     width: 100%;
     height: fit-content;
     font-size: 1rem;
-    border: 1px solid brown;
+ 
     text-align: center;
     background: #fff;
 }

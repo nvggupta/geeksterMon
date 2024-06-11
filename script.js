@@ -1,7 +1,36 @@
 const input = document.getElementById("input");
 const reset = document.getElementById("reset");
 const cardContainer = document.getElementById("card");
+const select = document.getElementById("select");
+const filter = document.getElementById("filter");
+const color = {
+    grass: "green",
+    fire: "orange",
+    water: "navyblue",
+    poison: "lightgreen",
+    electric: "whitesmoke",
 
+}
+select.addEventListener('change', () => {
+    const value = select.value;
+    console.log(value);
+});
+
+filter.addEventListener('click', () => {
+    const value = select.value;
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((el) => {
+        const types = el.querySelector(".type").textContent.toLowerCase();
+        if (types.includes(value.toLowerCase())) {
+            el.style.display = "block";
+        } else {
+            el.style.display = "none";
+        }
+    });
+});
+reset.addEventListener('click' , ()=>{
+    location.reload();
+})
 const createNewCard = (pokemon) => {
     let card = document.createElement('div');
     card.classList.add('card');
@@ -36,7 +65,7 @@ const searching = async (input) => {
 }
 
 const fetchData = async () => {  
-    for (let i = 1; i <= 51; i++) {
+    for (let i = 1; i <= 151; i++) {
         const data = await searching(i);
         if (data) {
             const card = createNewCard(data);
